@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { FiSearch } from "react-icons/fi";
 import { fetchStock } from "@/lib/fetchStock";
+import Image from "next/image";
 
 const Hero = () => {
     const [search, setSearch] = useState("");
@@ -13,14 +14,13 @@ const Hero = () => {
 
         if (!search) return;
         setLoading(true);
-        console.log("loadig ", loading);
+        // console.log("loadig ", loading);
         let timeoutId = setTimeout(async () => {
 
-            console.log("data frm search api ", loading);
+            // console.log("data frm search api ", loading);
             try {
                 const data = await fetchStock(search);
-                console.log("data from api fnc ", data);
-
+                // console.log("data from api fnc ", data);
                 setSuggestions(data);
             } catch {
                 setSuggestions([]);
@@ -35,8 +35,8 @@ const Hero = () => {
     const staticSuggestions = [
         { company: "Tata Consultancy Services Ltd.", symbol: "TCS", type: "stock" },
         { company: "Reliance Industries Ltd.", symbol: "RELIANCE", type: "stock" },
-        { company: "Infosys Ltd.", symbol: "INFOSYS", type: "stock" },
-        { company: "HDFC Bank Ltd.", symbol: "HDFC BANK", type: "stock" }
+        { company: "Infosys Ltd.", symbol: "INFY", type: "stock" },
+        { company: "HDFC Bank Ltd.", symbol: "HDFCBANK", type: "stock" }
     ];
     const dropdownData = search ? suggestions : staticSuggestions;
 
@@ -46,6 +46,16 @@ const Hero = () => {
 
     return (
         <section className="h-[75vh] py-20">
+            <div className="absolute bottom-0 right-0 opacity-80 w-96 pointer-events-none">
+                <Image
+                    src="/bg.png"
+                    alt="Background Graphic"
+                    width={384}
+                    height={384}
+                    priority={false}
+                />
+            </div>
+
             <div className="max-w-4xl mx-auto text-center px-4">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">
                     Track Stocks, Market Trends, and Research Reports
@@ -55,7 +65,7 @@ const Hero = () => {
                 </p>
 
                 <div className="relative w-full sm:w-96 mx-auto">
-                    <FiSearch className="absolute top-1/2 left-3 -translate-y-1/2" />
+                    <FiSearch className="absolute text-white top-1/2 left-3 -translate-y-1/2" />
                     <input
                         type="text"
                         placeholder="Search stock by name or symbol"
@@ -63,7 +73,7 @@ const Hero = () => {
                         onChange={(e) => setSearch(e.target.value)}
                         onFocus={() => setIsFocused(true)}
                         onBlur={() => setTimeout(() => setIsFocused(false), 500)}
-                        className="pl-10 pr-4 py-3 rounded w-full text-gray-300 placeholder:text-gray-600 border-[0.5px]"
+                        className="pl-10 pr-4 py-3  bg-gray-800 text-white  rounded-md w-full  placeholder:text-gray-300 order-[0.5px]"
                     />
                     {isFocused && (
                         <div className="absolute top-full left-0 right-0  border mt-1 rounded shadow-lg z-10">

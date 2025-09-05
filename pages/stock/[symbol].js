@@ -20,9 +20,12 @@ const StockDetails = ({ stockData }) => {
           content={`${stockData.company},${stockData.symbol}, stock, share price, NSE, BSE, live chart, market data`}
         />
       </Head>
+
       <div className="flex flex-col md:flex-row gap-6 p-8">
         <div className="md:w-1/3 w-full">
-          <StockData stockData={stockData} />
+          <div className="sticky top-30 h-fit">
+            <StockData stockData={stockData} />
+          </div>
         </div>
 
         <div className="flex-1 flex flex-col gap-4">
@@ -55,7 +58,7 @@ export async function getServerSideProps(context) {
   }
   if (stockData) {
     stockData.priceHistory = latestPrice;
-    stockData.latestPrice = latestPrice[0];
+    stockData.latestPrice = latestPrice ? latestPrice[0] : {};
   }
 
 

@@ -16,8 +16,8 @@ const StockChart = ({ priceData }) => {
 
 
   return (
-    <div className="bg-gray-50 h-80 rounded-lg shadow-md p-8">
-      <h2 className="text-lg font-semibold mb-2">Price Chart</h2>
+    
+    <div className="bg-slate-800  h-80 rounded-lg shadow-md p-8">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data}>
           <XAxis dataKey="time" minTickGap={40} />
