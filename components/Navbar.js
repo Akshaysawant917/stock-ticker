@@ -22,7 +22,7 @@ const Navbar = () => {
                 <div className="md:hidden">
                     <button onClick={() => setIsOpen(!isOpen)}>☰</button>
                 </div>
-                <div className="hidden md:flex items-center md:gap-4">
+                <div className="hidden md:flex items-center md:gap-6">
                     {links.map(link => <Link key={link.href} href={link.href}>{link.name}</Link>)}
 
                     <Link href="/login" className="bg-blue-500 px-3 py-1 rounded">Login</Link>
