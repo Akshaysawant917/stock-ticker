@@ -55,7 +55,7 @@ const Hero = () => {
                 </p>
 
                 <div className="relative w-full sm:w-96 mx-auto">
-                    <FiSearch className="absolute top-1 left-3 " />
+                    <FiSearch className="absolute top-1/2 left-3 -translate-y-1/2" />
                     <input
                         type="text"
                         placeholder="Search stock by name or symbol"
