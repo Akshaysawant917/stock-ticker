@@ -2,6 +2,7 @@
 import { fetchStockDetails, fetchPriceDetails } from "@/lib/fetchStock";
 import StockData from "@/components/StockData";
 import StockChart from "@/components/StockChart";
+import StockPrice from "@/components/StockPrice";
 
 const StockDetails = ({ stockData }) => {
   // console.log("data here", stockData);
@@ -12,8 +13,9 @@ const StockDetails = ({ stockData }) => {
     <StockData stockData={stockData} />
   </div>
 
-  <div className="md:w-2/3 w-full">
-    <StockChart priceData={stockData?.price} />
+  <div className="flex-1 flex flex-col gap-4">
+    <StockChart priceData={stockData?.priceHistory} />
+    <StockPrice priceData={stockData?.latestPrice} />
   </div>
 </div>
 
@@ -35,11 +37,15 @@ export async function getServerSideProps(context) {
     const priceRes = await fetchPriceDetails(symbol)
     // console.log("priceRes", priceRes);
 
-    latestPrice = priceRes[0]
+    latestPrice = priceRes
   } catch (err) {
     console.error("Price fetch failed:", err);
   }
-  if (stockData) stockData.price = latestPrice;
+ if (stockData) {
+  stockData.priceHistory = latestPrice;  
+  stockData.latestPrice = latestPrice[0]; 
+}
+
 
   return { props: { stockData } };
 }

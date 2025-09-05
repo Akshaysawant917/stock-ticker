@@ -1,19 +1,31 @@
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+
 const StockChart = ({ priceData }) => {
+ const data = Array.isArray(priceData)
+  ? [...priceData].reverse().map(item => ({
+      ...item,
+      time: new Date(item.date).toLocaleTimeString("en-IN", {
+        hour: "2-digit",
+        minute: "2-digit"
+      })
+    }))
+  : [];
+
+//   console.log(data);
+  
+
+
   return (
-    <div className="flex-1 flex flex-col gap-4">
-
-      <div className="bg-gray-50 h-60 rounded-lg shadow-md flex items-center justify-center">
-        <p>Chart</p>
-      </div>
-
-      <div className="bg-gray-50 p-4 rounded-lg shadow-md">
-        <p>Open: ₹{priceData.open}</p>
-        <p>High: ₹{priceData.high}</p>
-        <p>Low: ₹{priceData.low}</p>
-        <p>Prev Close: ₹{priceData.prev_close}</p>
-        <p>Volume: {priceData.volume}</p>
-        <p>Value: ₹{priceData.value}</p>
-      </div>
+    <div className="bg-gray-50 h-80 rounded-lg shadow-md p-8">
+      <h2 className="text-lg font-semibold mb-2">Price Chart</h2>
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart data={data}>
+          <XAxis dataKey="time" minTickGap={40} />
+          <YAxis domain={["auto", "auto"]}  />
+          <Tooltip labelFormatter={(label) => label} />
+          <Line type="monotone" dataKey="close" stroke="#3b82f6" strokeWidth={2} dot={false} />
+        </LineChart>
+      </ResponsiveContainer>
     </div>
   );
 };
