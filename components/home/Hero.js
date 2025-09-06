@@ -65,7 +65,7 @@ const Hero = () => {
                 </p>
 
                 <div className="relative w-full sm:w-96 mx-auto">
-                    <FiSearch className="absolute text-white top-1/2 left-3 -translate-y-1/2" />
+                   <FiSearch className="absolute text-white top-1/2 left-3 -translate-y-1/2 z-10 drop-shadow-sm" />
                     <input
                         type="text"
                         placeholder="Search stock by name or symbol"
@@ -73,7 +73,7 @@ const Hero = () => {
                         onChange={(e) => setSearch(e.target.value)}
                         onFocus={() => setIsFocused(true)}
                         onBlur={() => setTimeout(() => setIsFocused(false), 500)}
-                        className="pl-10 pr-4 py-3 border-1 bg-gray-800 text-white  rounded-md w-full  placeholder:text-gray-300 order-[0.5px]"
+                        className="pl-10 pr-4 py-3 border-1 backdrop-blur-md text-white  rounded-md w-full  placeholder:text-gray-300 order-[0.5px]"
                     />
                     {isFocused && (
                         <div className="absolute bg-slate-900 top-full left-0 right-0  border mt-1 rounded shadow-lg z-10">
