@@ -2,9 +2,9 @@
 
 A stock tracking application built with Next.js that allows users to search stocks, view detailed information, and track favorites. Built for the TradebraBrains technical assessment.
 
-## Links
-Live Demo: https://stock-ticker-five.vercel.app/
-GitHub Repo: https://github.com/Akshaysawant917/stock-ticker
+## Live Demo
+**Deployed URL**: https://stock-ticker-five.vercel.app/  
+**GitHub Repository**: https://github.com/Akshaysawant917/stock-ticker
 
 ## Features
 
