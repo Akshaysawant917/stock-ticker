@@ -33,8 +33,8 @@ const StockData = ({ stockData }) => {
           <p className="text-white">{company}</p>
         </div>
 
-        <button onClick={toggleFavourite} className="text-3xl hover:opacity-80 transition">
-          {favourite ? <AiFillHeart className="text-red-500" /> : <AiOutlineHeart className="text-white" />}
+        <button onClick={toggleFavourite} className="text-3xl hover:opacity-80 transition cursor-pointer ">
+          {favourite ? <AiFillHeart className="text-red-500 " /> : <AiOutlineHeart className="text-white" />}
         </button>
       </div>
 

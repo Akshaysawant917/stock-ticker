@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Favourites from "@/components/fav/Favourites";
+import Favourites from "@/components/fav/FavouritesComp";
 
 const FavouritesPage = () => {
     return (
