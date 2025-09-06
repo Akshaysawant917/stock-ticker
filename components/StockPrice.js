@@ -1,7 +1,7 @@
 const StockPrice = ({ priceData }) => {
   return (
     <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white p-6 rounded-xl shadow-xl border border-gray-700">
-      <h2 className="text-xl font-bold mb-4">Today's Stock Info</h2>
+      <h2 className="text-xl font-bold mb-4">Todays Stock Info</h2>
       <div className="grid grid-cols-2 gap-4 text-sm md:text-md">
         <div className="flex justify-between">
           <span className="text-gray-400">Open:</span>
