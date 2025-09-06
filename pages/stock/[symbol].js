@@ -5,7 +5,7 @@ import StockChart from "@/components/StockChart";
 import StockPrice from "@/components/StockPrice";
 
 const StockDetails = ({ stockData }) => {
-  console.log("data here", stockData);
+  // console.log("data here", stockData);
 
   return (
     <>
@@ -43,25 +43,30 @@ export async function getServerSideProps(context) {
   const { symbol } = context.params;
   let stockData = null;
   let latestPrice = null;
+  
   try {
     const stockRes = await fetchStockDetails(symbol);
+    if (!stockRes || stockRes.length === 0) {
+      return { notFound: true };
+    }
     stockData = stockRes[0];
   } catch (err) {
     console.error("Stock details fetch failed:", err);
   }
+
   try {
-    const priceRes = await fetchPriceDetails(symbol)
+    const priceRes = await fetchPriceDetails(symbol)  
     // console.log("priceRes", priceRes);
 
     latestPrice = priceRes
   } catch (err) {
     console.error("Price fetch failed:", err);
   }
+
   if (stockData) {
     stockData.priceHistory = latestPrice;
     stockData.latestPrice = latestPrice ? latestPrice[0] : {};
   }
-
 
   return { props: { stockData } };
 }
