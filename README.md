@@ -1,40 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Stock Tracker - Next.js Assessment
+
+A stock tracking application built with Next.js that allows users to search stocks, view detailed information, and track favorites. Built for the TradebraBrains technical assessment.
+
+## Features
+
+### Core Requirements
+- Stock search with autocomplete functionality
+- Dynamic stock detail pages with SEO-optimized meta tags
+- Interactive price charts using Recharts
+- Server-side rendering for stock data
+- Responsive design for all devices
+- Error handling for API failures
+
+### Bonus Features
+- Favorite stocks saved to localStorage
+- Rolling ticker showing market movers
+- Loading states throughout the app
+
+## Tech Stack
+
+- **Framework**: Next.js
+- **Styling**: Tailwind CSS
+- **Charts**: Recharts
+- **Icons**: React Icons
+- **Ticker**: React Fast Marquee
 
 ## Getting Started
 
-First, run the development server:
-
+1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [your-repo-url]
+cd stock-tracker
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+3. Start development server
+```bash
+npm run dev
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+4. Open http://localhost:3000
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+├── components/
+│   ├── global/              # Layout components
+│   │   ├── Navbar.js
+│   │   ├── Footer.js
+│   │   └── StockTicker.js
+│   ├── home/                # Homepage components
+│   │   ├── Hero.js
+│   │   └── WhyChooseUs.js
+│   ├── details/             # Stock detail components
+│   │   ├── StockChart.js
+│   │   ├── StockData.js
+│   │   └── StockPrice.js
+│   └── fav/                 # Favorites components
+│       ├── FavouriteStockCard.js
+│       ├── EmptyFavourites.js
+│       └── FavouritesList.js
+├── pages/
+│   ├── index.js             # Homepage
+│   ├── stock/[symbol].js    # Dynamic stock pages
+│   └── favourites.js        # Saved stocks
+├── lib/
+│   ├── fetchStock.js        # API functions
+│   └── favourites.js        # LocalStorage utilities
+```
 
-## Learn More
+## API Integration
 
-To learn more about Next.js, take a look at the following resources:
+The app uses TradebraBrains APIs:
+- Search API for stock lookup
+- Stock prices API for chart data
+- Market movers API for ticker
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## Key Implementation Details
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Search**: Debounced autocomplete with 1-second delay
+- **Routing**: Dynamic pages at `/stock/[symbol]`
+- **SEO**: Dynamic meta tags for each stock page
+- **Data Fetching**: Server-side rendering with getServerSideProps
+- **Error Handling**: Graceful fallbacks for missing data
+- **Favorites**: Persistent storage using localStorage
 
-## Deploy on Vercel
+## Requirements Met
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+✅ Next.js framework  
+✅ Stock search with API integration  
+✅ Dynamic routing for stock details  
+✅ SEO meta tags using Next.js Head  
+✅ Interactive charts with Recharts  
+✅ Server-side data fetching  
+✅ Error handling for API calls  
+✅ Responsive design  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+**Bonus features completed:**
+✅ Favorite stocks with localStorage  
+✅ Loading states  
+✅ Rolling ticker bar  
+
+## Build & Deploy
+
+```bash
+npm run build    # Build for production
+npm run start    # Start production server
+```
+
+Ready for deployment on Vercel, Netlify, or any Node.js platform.
+
+---
+
+**Assessment completed within 72 hours for TradebraBrains**
