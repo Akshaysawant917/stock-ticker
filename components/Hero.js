@@ -45,18 +45,18 @@ const Hero = () => {
     };
 
     return (
-        <section className="h-[75vh] py-20 ">
+        <section className="h-[50vh] sm:h-[60vh] md:h-[85vh] py-8 sm:py-12 md:py-20 relative">
             <Image
                 src="/bg-blue.jpg"
                 alt="Stock background"
                 layout="fill"
-                objectFit="fill"
+                objectFit="cover"
                 priority
                 className="z-0 absolute inset-0"
             />
             <div className="absolute inset-0 bg-black/70 z-10"></div>
 
-            <div className="max-w-4xl mx-auto text-center px-4 z-20 relative">
+            <div className="relative z-20 max-w-4xl mx-auto text-center px-4 h-full flex flex-col justify-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
                     Track Stocks, Market Trends, and Research Reports
                 </h1>

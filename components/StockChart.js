@@ -18,7 +18,7 @@ const StockChart = ({ priceData }) => {
 
   return (
 
-    <div className="bg-slate-800  h-80 rounded-lg shadow-md p-8 flex justify-center items-center">
+    <div className="bg-slate-800 h-64 sm:h-72 md:h-80 lg:h-96 rounded-lg shadow-md p-3 sm:p-4 md:p-6 lg:p-8 flex justify-center items-center">
       {hasData ? (
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data}>
