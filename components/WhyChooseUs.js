@@ -20,14 +20,14 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-20 ">
+    <section className="py-20 bg-slate-900">
       <div className="max-w-6xl mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8">Why Choose Us</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">Why Choose Us</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition"
+              className="bg-gray-900 p-6 rounded-lg border-1 border-white shadow-lg hover:shadow-xl transition"
             >
               {feature.icon}
               <h3 className="text-xl text-white font-semibold mb-2">{feature.title}</h3>

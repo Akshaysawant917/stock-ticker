@@ -45,22 +45,22 @@ const Hero = () => {
     };
 
     return (
-        <section className="h-[75vh] py-20">
-            <div className="absolute bottom-0 right-0 opacity-80 w-96 pointer-events-none">
-                <Image
-                    src="/bg.png"
-                    alt="Background Graphic"
-                    width={384}
-                    height={384}
-                    priority={false}
-                />
-            </div>
+        <section className="h-[75vh] py-20 ">
+            <Image
+                src="/bg-blue.jpg"
+                alt="Stock background"
+                layout="fill"
+                objectFit="fill"
+                priority
+                className="z-0 absolute inset-0"
+            />
+            <div className="absolute inset-0 bg-black/70 z-10"></div>
 
-            <div className="max-w-4xl mx-auto text-center px-4">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <div className="max-w-4xl mx-auto text-center px-4 z-20 relative">
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
                     Track Stocks, Market Trends, and Research Reports
                 </h1>
-                <p className=" text-lg mb-8">
+                <p className=" text-lg mb-8 text-white">
                     Get real-time stock data and insights instantly
                 </p>
 
@@ -73,10 +73,10 @@ const Hero = () => {
                         onChange={(e) => setSearch(e.target.value)}
                         onFocus={() => setIsFocused(true)}
                         onBlur={() => setTimeout(() => setIsFocused(false), 500)}
-                        className="pl-10 pr-4 py-3  bg-gray-800 text-white  rounded-md w-full  placeholder:text-gray-300 order-[0.5px]"
+                        className="pl-10 pr-4 py-3 border-1 bg-gray-800 text-white  rounded-md w-full  placeholder:text-gray-300 order-[0.5px]"
                     />
                     {isFocused && (
-                        <div className="absolute top-full left-0 right-0  border mt-1 rounded shadow-lg z-10">
+                        <div className="absolute bg-slate-900 top-full left-0 right-0  border mt-1 rounded shadow-lg z-10">
                             {loading ? (
                                 <div className="px-4 py-2 text-gray-400">Loading</div>
                             ) : search && suggestions.length == 0 ? (

@@ -5,7 +5,7 @@ import StockChart from "@/components/StockChart";
 import StockPrice from "@/components/StockPrice";
 
 const StockDetails = ({ stockData }) => {
-  // console.log("data here", stockData);
+  console.log("data here", stockData);
 
   return (
     <>
@@ -21,7 +21,8 @@ const StockDetails = ({ stockData }) => {
         />
       </Head>
 
-      <div className="flex flex-col md:flex-row gap-6 p-8">
+      <div className="flex flex-col md:flex-row gap-6 p-8 bg-slate-900">
+        
         <div className="md:w-1/3 w-full">
           <div className="sticky top-30 h-fit">
             <StockData stockData={stockData} />
