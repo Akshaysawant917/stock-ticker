@@ -23,8 +23,20 @@ const StockChart = ({ priceData }) => {
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data}>
             <XAxis dataKey="time" minTickGap={40} tick={{ fill: "#ffffff" }} />
-            <YAxis domain={["auto", "auto"]} tick={{ fill: "#ffffff" }} />
-            <Tooltip labelFormatter={(label) => label} />
+            <YAxis
+              domain={["auto", "auto"]}
+              tick={{ fill: "#ffffff" }}
+              tickFormatter={(value) => `₹${value}`}
+            />
+            <Tooltip
+              labelFormatter={(label) => `Time: ${label}`}
+              formatter={(value) => [`₹${Number(value).toLocaleString('en-IN')}`, 'Price']}
+              contentStyle={{
+                backgroundColor: '#1e293b',
+                border: '1px solid #475569',
+                borderRadius: '6px'
+              }}
+            />
             <Line type="monotone" dataKey="close" stroke="#3b82f6" strokeWidth={2} dot={false} />
           </LineChart>
         </ResponsiveContainer>

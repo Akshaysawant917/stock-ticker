@@ -1,5 +1,5 @@
-import Hero from "@/components/Hero";
-import WhyChooseUs from "@/components/WhyChooseUs";
+import Hero from "@/components/home/Hero";
+import WhyChooseUs from "@/components/home/WhyChooseUs";
 import Head from "next/head";
 
 export default function Home() {

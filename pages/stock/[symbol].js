@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { fetchStockDetails, fetchPriceDetails } from "@/lib/fetchStock";
-import StockData from "@/components/StockData";
-import StockChart from "@/components/StockChart";
-import StockPrice from "@/components/StockPrice";
+import StockData from "@/components/details/StockData";
+import StockChart from "@/components/details/StockChart";
+import StockPrice from "@/components/details/StockPrice";
 
 const StockDetails = ({ stockData }) => {
   // console.log("data here", stockData);

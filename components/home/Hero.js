@@ -45,7 +45,7 @@ const Hero = () => {
     };
 
     return (
-        <section className="h-[50vh] sm:h-[60vh] md:h-[85vh] py-8 sm:py-12 md:py-20 relative">
+        <section className="h-[50vh] sm:h-[60vh]  lg:h-[85vh] py-8 sm:py-12 md:py-20 relative">
             <Image
                 src="/bg-blue.jpg"
                 alt="Stock background"

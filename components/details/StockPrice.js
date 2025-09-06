@@ -25,7 +25,12 @@ const StockPrice = ({ priceData }) => {
         </div>
         <div className="flex justify-between">
           <span className="text-gray-400">Value:</span>
-          <span className="font-medium">₹{priceData?.value?.toLocaleString() || "NA"}</span>
+          <span className="font-medium">
+            ₹{priceData?.value ?
+              (priceData.value / 10000000).toFixed(2) + "Cr" :
+              "NA"
+            }
+          </span>
         </div>
       </div>
     </div>
