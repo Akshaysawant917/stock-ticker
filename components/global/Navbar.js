@@ -14,6 +14,10 @@ const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
 
+     const handleLinkClick = () => {
+        setIsOpen(false);
+    };
+
     return (
         <nav className="bg-gray-900 text-white py-2 px-4 relative shadow-xl">
             <div className="flex justify-between items-center">
@@ -35,11 +39,11 @@ const Navbar = () => {
 
             <div className={`md:hidden absolute top-full left-0 w-full bg-gray-900 py-4 flex flex-col items-center gap-2 rounded shadow-lg z-50 ${isOpen ? "flex" : "hidden"
                 }`}>
-                {links.map(link => <Link key={link.name} href={link.href}>{link.name}</Link>)}
-                <Link href="/favourites" className="flex items-center gap-1  rounded">
+                {links.map(link => <Link key={link.name} href={link.href} onClick={handleLinkClick}>{link.name}</Link>)}
+                <Link href="/favourites" className="flex items-center gap-1  rounded" onClick={handleLinkClick}>
                     <AiOutlineHeart size={24} />
                 </Link>
-                <Link href="/login" className="bg-blue-500 px-3 py-1 rounded text-center">Login</Link>
+                <Link href="/login" className="bg-blue-500 px-3 py-1 rounded text-center" onClick={handleLinkClick}>Login</Link>
             </div>
         </nav>
     );
