@@ -2,6 +2,10 @@
 
 A stock tracking application built with Next.js that allows users to search stocks, view detailed information, and track favorites. Built for the TradebraBrains technical assessment.
 
+## Links
+Live Demo: https://stock-ticker-five.vercel.app/
+GitHub Repo: https://github.com/Akshaysawant917/stock-ticker
+
 ## Features
 
 ### Core Requirements
@@ -29,8 +33,8 @@ A stock tracking application built with Next.js that allows users to search stoc
 
 1. Clone the repository
 ```bash
-git clone [your-repo-url]
-cd stock-tracker
+git clone https://github.com/Akshaysawant917/stock-ticker
+cd stock-ticker
 ```
 
 2. Install dependencies
@@ -61,9 +65,7 @@ npm run dev
 │   │   ├── StockData.js
 │   │   └── StockPrice.js
 │   └── fav/                 # Favorites components
-│       ├── FavouriteStockCard.js
-│       ├── EmptyFavourites.js
-│       └── FavouritesList.js
+│       └── FavouritesComp.js
 ├── pages/
 │   ├── index.js             # Homepage
 │   ├── stock/[symbol].js    # Dynamic stock pages
@@ -112,8 +114,4 @@ npm run build    # Build for production
 npm run start    # Start production server
 ```
 
-Ready for deployment on Vercel, Netlify, or any Node.js platform.
 
----
-
-**Assessment completed within 72 hours for TradebraBrains**
